@@ -1,14 +1,14 @@
 "use client"
 import Image from "next/image";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./page.module.css";
 import BouncyText from '@/app/components/BouncyText/BouncyText';
 import { Fredoka } from 'next/font/google';
 import easyWordData from '@/data/easy-charades.json';
 import mediumWordData from '@/data/medium-charades.json';
  
-const fredoka : NextFont = Fredoka({
+const fredoka = Fredoka({
   subsets: ["latin"],  
   weight: ["300" , "400" , "500" , "600" , "700"]
 });
@@ -38,7 +38,7 @@ export default function Home() {
 
   }  
 
-  const speak = (text) => {
+  const speak = (text:string) => {
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = "en-US";
