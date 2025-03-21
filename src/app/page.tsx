@@ -65,6 +65,7 @@ export default function Home() {
           <div className="bg-gray-100 py-4 px-10 flex flex flex-row gap-5 justify-between items-center w-full mb-8">
             <p className={`${fredoka.className} text-[28px] text-black`}>{easyWord}</p>
             <button
+               className="cursor-pointer"
                onClick={() => speak(easyWord)}
             >
               <Image
@@ -80,6 +81,7 @@ export default function Home() {
           <div className="bg-gray-100 py-4 px-10 flex flex flex-row  gap-5 justify-between items-center w-full mb-8">
             <p className={`${fredoka.className} text-[28px] text-black`}>{medWord}</p>
             <button
+               className="cursor-pointer"
                onClick={() => speak(medWord)}
             >
               <Image
