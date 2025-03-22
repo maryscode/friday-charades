@@ -60,7 +60,7 @@
       "snowball",
       "snowman",
       "spaceship",
-      "statue",
+      "statue", 
       "stethoscope",
       "swing",
       "telescope",
@@ -73,8 +73,7 @@
       "waiter",
       "washing machine",
       "whistle",
-      "wizard",
-      "zookeeper"
+      "wizard"
     ]
   }
   
