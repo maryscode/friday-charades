@@ -12,7 +12,7 @@
     cursor: pointer;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
   }
-  
+
   .pushButton:active {
     transform: translateY(4px);
     box-shadow: 0 2px #54b75a;
