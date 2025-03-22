@@ -15,8 +15,6 @@ const fredoka = Fredoka({
 
 
 export default function Home() {
-
-  const [animate, setAnimate] = useState(false);
   const [start, setStart] = useState(false);
   const [loader, setLoader] = useState(false);
   const [easyWord, setEasyWord] = useState('');
@@ -41,12 +39,6 @@ export default function Home() {
       setLoader(false)
     }, 500)
 
-    setAnimate(true);
-    
-    setTimeout(() => {
-      setAnimate(false)
-    }, 100)
-
     setTimeout(() => {
       setEasyWord(getRandomWord(easyWordData.words))
       setMedWord(getRandomWord(mediumWordData.words)) 
@@ -58,7 +50,7 @@ export default function Home() {
     <div className={`${start ? '': 'flex justify-center' } items-center justify-items-center min-h-screen p-4 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}>
       {/* <main className="text-center bg-white rounded-lg p-8 sm:p-20"> */}
       <main className="text-center  p-8 sm:p-20">
-      <BouncyText animate={animate}>CHARADES</BouncyText>
+      <BouncyText>CHARADES</BouncyText>
         <div className="flex flex-col justify-center items-center">
           <button 
             onClick={handleClick}
