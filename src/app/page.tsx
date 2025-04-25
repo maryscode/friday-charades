@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import BouncyText from '@/app/components/BouncyText/BouncyText';
 import Word from '@/app/components/Word/Word';
@@ -20,6 +20,8 @@ export default function Home() {
   const [easyWord, setEasyWord] = useState('');
   const [medWord, setMedWord] = useState('');
   const [hardWord, setHardWord] = useState('');
+  const [timer, setTimer] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(30);
 
   const playMagicChime = () => {
     const chime = new Audio('/sounds/magic.mp3');
@@ -46,17 +48,37 @@ export default function Home() {
     }, 500)
   }  
 
+  useEffect(() => {
+    let timer;
+    if (setTimer && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft((prev) => prev - 1);
+      }, 1000);
+    } else if (timeLeft === 0) {
+      setTimer(false);
+    }
+    return () => clearInterval(timer);
+  }, [timer, timeLeft]);
+
+  const startTimer = () => {
+    setTimeLeft(30); // Reset to 30
+    setTimer(true);
+  }    
+
   return (
+    
     <div className={`${start ? '': 'flex justify-center' } items-center justify-items-center min-h-screen p-4 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}>
       {/* <main className="text-center bg-white rounded-lg p-8 sm:p-20"> */}
       <main className="text-center  p-8 sm:p-20">
       <BouncyText>CHARADES</BouncyText>
         <div className="flex flex-col justify-center items-center">
-          <button 
-            onClick={handleClick}
-            className={`${styles.pushButton} ${styles.roundbutton} ${fredoka.className} mt-4 mb-15`}
-          >PLAY
-          </button>
+          <div className="flex justify-center items-center gap-4">
+            <button 
+              onClick={handleClick}
+              className={`${styles.pushButton}  ${!start && styles.roundbutton} ${fredoka.className} mt-4 mb-15`}
+            >{start ? 'SHUFFLE' : 'PLAY'}
+            </button>
+          </div>
 
 {start && (
   <div className={`duration-100 ease-out ${loader ? 'opacity-0' : 'opacity-100'}`}>
@@ -65,9 +87,17 @@ export default function Home() {
     <Word level="hard" color="red">{hardWord}</Word>
   </div>
 )}
+
+
+            {start && <button 
+              onClick={startTimer}
+              className={`${styles.pushButton} ${styles.roundbutton} ${fredoka.className} mt-4 mb-15`}
+            >START
+            </button>}
                  
         </div>
 
+        <div className={timer ? 'bg-black fixed top-0 left-0 w-full h-full text-blue-200 font-bold text-[100px] flex justify-center items-center' : 'hidden'}>{timeLeft}</div>
       </main>
     </div>
   );

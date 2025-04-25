@@ -1,21 +1,22 @@
 
 
   .pushButton {
-    background: linear-gradient(145deg, #5fd867, #6af674);
+
     color: white;
     padding: 1rem 2.5rem;
     border: none;
     border-radius: 12px;
     font-size: 1.3rem;
     font-weight: 600;
-    box-shadow: 3px 6px #54b75a;
+    box-shadow: 3px 6px #b754af;
+    background: linear-gradient(145deg, #b45fd8, #e36af6);
     cursor: pointer;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
   }
 
   .pushButton:active {
     transform: translateY(4px);
-    box-shadow: 0 2px #54b75a;
+    box-shadow: 0 2px #b45fd8;
   }
 
   .roundbutton {
@@ -25,6 +26,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 36px;
+    font-size: 30px;
+    box-shadow: 3px 6px #54b75a;
+    background: linear-gradient(145deg, #5fd867, #6af674);
   }
   
+  .roundbutton:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #54b75a;
+  }
