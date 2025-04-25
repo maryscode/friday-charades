@@ -49,9 +49,9 @@ export default function Home() {
   }  
 
   useEffect(() => {
-    let timer;
+    let time;
     if (setTimer && timeLeft > 0) {
-      timer = setInterval(() => {
+      time = setInterval(() => {
         setTimeLeft((prev) => prev - 1);
       }, 1000);
     } else if (timeLeft === 0) {
