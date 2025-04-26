@@ -57,7 +57,7 @@ export default function Home() {
     } else if (timeLeft === 0) {
       setTimer(false);
     }
-    return () => clearInterval(timer);
+    return () => clearInterval(time);
   }, [timer, timeLeft]);
 
   const startTimer = () => {
