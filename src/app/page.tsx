@@ -49,8 +49,8 @@ export default function Home() {
   }  
 
   useEffect(() => {
-    let time;
-    if (setTimer && timeLeft > 0) {
+    let time: NodeJS.Timeout;
+    if (timer && timeLeft > 0) {
       time = setInterval(() => {
         setTimeLeft((prev) => prev - 1);
       }, 1000);
@@ -97,7 +97,19 @@ export default function Home() {
                  
         </div>
 
-        <div className={timer ? 'bg-black fixed top-0 left-0 w-full h-full text-blue-200 font-bold text-[100px] flex justify-center items-center' : 'hidden'}>{timeLeft}</div>
+        
+        {timer && 
+        <>
+        <div className={'bg-black fixed top-0 left-0 w-full h-full text-blue-200 font-bold text-[100px] flex justify-center items-center'}>{timeLeft}</div>
+        <button
+          className="fixed top-5 right-10 font-bold text-[30px] text-gray-200 py-2 px-8 bg-green-700 rounded-xl"
+          onClick={()=> {
+            setTimer(false);
+          }}  
+        >Done</button>
+        </>
+        }
+        
       </main>
     </div>
   );
