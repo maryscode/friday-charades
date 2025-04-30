@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Charades App
 
-## Getting Started
+A simple, fun, and colorful web app for playing **Charades** with randomized easy, medium, and hard words—perfect for parties, classrooms, or family game night.
 
-First, run the development server:
+Built with **Next.js**, **React**, and a sprinkle of motion magic .
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+##  Features
+
+-  **Random Word Generator**  
+  Instantly get a new set of easy, medium, and hard charades words.
+
+- ⏱ **30-Second Countdown Timer**  
+  Tap “Start” and begin acting! The screen becomes a full-screen countdown until time’s up.
+
+-  **Magic Sound on Play**  
+  Adds fun and delight when starting a round.
+
+-  **Bouncy, Styled UI**  
+  Uses custom components and smooth transitions for a playful experience.
+
+---
+
+##  Tech Stack
+
+- **Next.js / React**
+- **TypeScript**
+- **Tailwind CSS**
+- **CSS Modules**
+- **Custom Components** (`<BouncyText />`, `<Word />`)
+- **Google Fonts (Fredoka)**
+
+---
+
+##  How to Use
+
+1. Clone the repo and run the dev server:
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+2. Open your browser to `http://localhost:3000`
+
+3. Hit **PLAY** to shuffle words  
+   Hit **START** to launch a full-screen 30-second countdown
+
+---
+
+##  Word Lists
+
+Words are stored in local JSON files:
+
+- `/data/easy-charades.json`
+- `/data/medium-charades.json`
+- `/data/hard-charades.json`
+
+Each file should look like:
+```json
+{
+  "words": ["apple", "jump", "whistle", ...]
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##  To Do / Wishlist
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-  Voice countdown or buzzer
+-  Mobile-friendly refinements
+-  Add custom word list input
+- ⏳ Difficulty-based timers
+-  Multiplayer/team mode
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+##  Ideal For
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Kids and families
+- ESL learning
+- Icebreakers and classrooms
+- House parties or sleepovers
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+##  File Highlights
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| File                     | Purpose                            |
+|--------------------------|-------------------------------------|
+| `page.tsx`               | Main logic and component rendering |
+| `Word.tsx`               | Color-coded word display           |
+| `BouncyText.tsx`         | Animated title component           |
+| `page.module.css`        | Button and layout styles           |
+| `/sounds/magic.mp3`      | Chime sound on play                |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
