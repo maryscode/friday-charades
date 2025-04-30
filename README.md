@@ -4,6 +4,7 @@ A simple, fun, and colorful web app for playing **Charades** with randomized eas
 
 Built with **Next.js**, **React**, and a sprinkle of motion magic .
 
+Play here: [https://friday-charades.vercel.app/](https://friday-charades.vercel.app/)
 ---
 
 ##  Features
